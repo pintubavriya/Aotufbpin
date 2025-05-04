@@ -1,70 +1,41 @@
-import React, { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Calendar } from "@/components/ui/calendar";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+# AutopinFB
 
-export default function AutopinFBDashboard() {
-  const [caption, setCaption] = useState("");
-  const [file, setFile] = useState(null);
-  const [pages, setPages] = useState({ page1: false, page2: false });
-  const [date, setDate] = useState(new Date());
+AutopinFB is a web-based tool that allows users to automatically upload photos and videos to multiple Facebook Pages with scheduled posting.
 
-  const handleUpload = () => {
-    // Placeholder function for handling upload
-    alert("Upload scheduled!");
-  };
+## Features
 
-  return (
-    <div className="p-4 grid gap-4 max-w-xl mx-auto">
-      <h1 className="text-2xl font-bold">AutopinFB - Auto Upload Dashboard</h1>
+- Upload images or videos
+- Add a caption to the post
+- Select multiple Facebook Pages
+- Schedule the date and time of publishing
+- Status view for scheduled uploads (coming soon)
 
-      <Card>
-        <CardContent className="grid gap-4 p-4">
-          <Input type="file" onChange={(e) => setFile(e.target.files[0])} />
+## Technologies Used
 
-          <Textarea
-            placeholder="Enter caption..."
-            value={caption}
-            onChange={(e) => setCaption(e.target.value)}
-          />
+- React (Next.js)
+- Tailwind CSS
+- Vercel (Hosting)
+- Facebook Graph API (for auto-posting, backend work)
 
-          <div className="grid gap-2">
-            <Label>Select Facebook Pages:</Label>
-            <div className="flex gap-4">
-              <div className="flex items-center gap-2">
-                <Checkbox
-                  checked={pages.page1}
-                  onCheckedChange={(val) =>
-                    setPages({ ...pages, page1: val })
-                  }
-                />
-                <Label>Page 1</Label>
-              </div>
-              <div className="flex items-center gap-2">
-                <Checkbox
-                  checked={pages.page2}
-                  onCheckedChange={(val) =>
-                    setPages({ ...pages, page2: val })
-                  }
-                />
-                <Label>Page 2</Label>
-              </div>
-            </div>
-          </div>
+## How to Use
 
-          <div className="grid gap-2">
-            <Label>Schedule Post:</Label>
-            <Calendar mode="single" selected={date} onSelect={setDate} />
-          </div>
+1. Upload your photo or video file.
+2. Write a caption.
+3. Select the Facebook Pages where you want to publish.
+4. Pick a date using the calendar to schedule your post.
+5. Click on `Schedule Upload`.
 
-          <Button onClick={handleUpload}>Schedule Upload</Button>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
+## Live Demo
 
+[Click here to view the live website](https://your-vercel-link.vercel.app)
+
+## Future Improvements
+
+- Login with Facebook
+- Fetch list of pages dynamically
+- Real-time status tracking
+- Mobile app version
+
+## License
+
+This project is for educational and demo purposes.
